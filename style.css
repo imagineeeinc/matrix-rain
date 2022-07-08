@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 #canvas {
     width: 100vw;
@@ -15,8 +16,9 @@ body {
 }
 #control {
     position: fixed;
-    bottom: 0;
+    top: 0;
     right: 0;
+    z-index: 10;
     opacity: 0;
     background: transparent;
     color: white;
@@ -38,14 +40,16 @@ body {
     padding: 25px;
     background-color: #000;
     color: #fff;
+    border-radius: 5px;
 }
 .hide {
     display: none;
 }
 input {
-    padding: 0;
-    border: none;
-    margin: 0;
+    padding: 2px;
+    border: 1px solid rgb(55, 55, 55);
+    border-radius: 5px;
+    margin: 5px;
     background: #000;
     color: #fff;
 }
