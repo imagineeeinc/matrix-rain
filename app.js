@@ -13,7 +13,10 @@ for(var x = 0; x < columns; x++) {
 	drops[x] = 0
 }
 
-window.addEventListener("resize", function() {
+window.addEventListener("resize", resize)
+document.getElementById("fs").addEventListener("change", resize)
+function resize() {
+	font_size = document.getElementById("fs").value
 	disp.height = window.innerHeight*1.5;
 	disp.width = window.innerWidth*1.5;
 	columns = disp.width/font_size;
@@ -22,12 +25,13 @@ window.addEventListener("resize", function() {
 			drops[x] = 0
 		}
 	}
-})
+}
 
 //drawing the characters
 function draw() {
 	let fr = document.getElementById("fr").value
 	let bg = document.getElementById("bg").value+"26"
+	font_size = document.getElementById("fs").value
   ctx.fillStyle = bg; // rgba(0, 0, 20, 0.15)
   ctx.fillRect(0, 0, disp.width, disp.height);
   ctx.fillStyle = fr; // rgb(0, 0, 20)
