@@ -6,11 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta name="theme-color" content="rgb(0,0,20)">
     <meta name="description" content="Imagineee's beautiful website">
-    <title>Imagineee</title>
+    <title>The Matrix</title>
     <link rel="stylesheet" type="text/css" href="./style.css">
   </head>
   <body>
     <canvas id="canvas"></canvas>
+    <button id="control">></button>
+    <div id="panel" class="hide">
+      <label>
+        Background color
+        <input type="color" id="bg" value="#00001426">
+      </label>
+      <br>
+      <label>
+        Foreground color
+        <input type="color" id="fr" value="#a19dfc">
+      </label>
+      <br>
+      <label>
+        Hide mouse
+        <input type="checkbox" id="mo">
+      </label>
+    </div>
     <script src="./app.js" type="module" defer=""></script>
   </body>
 </html>

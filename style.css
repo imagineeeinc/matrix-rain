@@ -1,5 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
 #canvas {
     width: 100vw;
     height: 100vh;
     background: #000;
+    margin: 0;
+    padding: 0;
+}
+.no-mouse {
+    cursor: none;
+}
+#control {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    background: transparent;
+    color: white;
+    font-size: x-large;
+    width: 30px;
+    height: 30px;
+    font-weight: 900;
+    cursor: pointer;
+    border: 1px solid slategrey;
+}
+#control:hover {
+    opacity: 1;
+}
+#panel {
+    position: fixed;
+    top:0;
+    right:0;
+    width: 50vw;
+    padding: 25px;
+    background-color: #000;
+    color: #fff;
+}
+.hide {
+    display: none;
+}
+input {
+    padding: 0;
+    border: none;
+    margin: 0;
 }

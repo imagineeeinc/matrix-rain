@@ -1,10 +1,8 @@
 var disp = document.getElementById("canvas")
 var ctx = disp.getContext("2d")
 
-disp.height = window.innerHeight*1.5
-disp.width = window.innerWidth*1.5
-var halfH = window.innerHeight*0.5
-var halfW = window.innerWidth*0.5
+disp.height = window.innerHeight
+disp.width = window.innerWidth
 var matrix = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/\\~{[|`'\"']}".split("")
 
 var font_size = 15
@@ -28,9 +26,11 @@ window.addEventListener("resize", function() {
 
 //drawing the characters
 function draw() {
-  ctx.fillStyle = "rgba(0, 0, 20, 0.15)";
+	let fr = document.getElementById("fr").value
+	let bg = document.getElementById("bg").value+"26"
+  ctx.fillStyle = bg; // rgba(0, 0, 20, 0.15)
   ctx.fillRect(0, 0, disp.width, disp.height);
-  ctx.fillStyle = "#a19dfc";
+  ctx.fillStyle = fr; // rgb(0, 0, 20)
   ctx.font = font_size + "px monospace";
   
   for(var i = 0; i < drops.length; i++) {
@@ -50,17 +50,15 @@ function draw() {
 
     drops[i]++;
   }
-
-	disp.style.left = Math.round((x-halfW)/20) + "px";
-	disp.style.top = Math.round((y-halfH)/10) + "px";
 }
 
 setInterval(draw, 50)
 
-var x = window.innerWidth/2
-var y = window.innerHeight/2
-
-document.body.addEventListener("mousemove", (event) => {
-	x = event.clientX;
-	y = event.clientY;
+document.getElementById("control").addEventListener("click", ()=>document.getElementById("panel").classList.toggle('hide'))
+document.getElementById("mo").addEventListener('change', ()=>{
+	if (document.getElementById("mo").checked) {
+		disp.classList.add('no-mouse')
+	} else {
+		disp.classList.remove('no-mouse')
+	}
 })
