@@ -6,6 +6,7 @@ disp.width = window.innerWidth
 var matrix = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/\\~{[|`'\"']}".split("")
 
 var font_size = 15
+var speed = 50
 var columns = disp.width/font_size
 
 var drops = []
@@ -27,11 +28,21 @@ function resize() {
 	}
 }
 
+let colors = window.location.href.split("#")[1]
+if (colors) {
+	colors = colors.split('-')
+	document.getElementById("fr").value = '#'+colors[0]
+	document.getElementById("bg").value = '#'+colors[1]
+	if (colors[2]) document.getElementById("fs").value = colors[2];resize()
+	if (colors[3]) speed = colors[3]
+}
+
 //drawing the characters
 function draw() {
 	let fr = document.getElementById("fr").value
 	let bg = document.getElementById("bg").value+"26"
 	font_size = document.getElementById("fs").value
+	document.querySelector('meta[name="theme-color"]').setAttribute('content', document.getElementById("bg").value)
   ctx.fillStyle = bg; // rgba(0, 0, 20, 0.15)
   ctx.fillRect(0, 0, disp.width, disp.height);
   ctx.fillStyle = fr; // rgb(0, 0, 20)
@@ -56,8 +67,9 @@ function draw() {
   }
 }
 
-setInterval(draw, 50)
+setInterval(draw, speed)
 
+disp.addEventListener("click", ()=>document.getElementById("panel").classList.add('hide'))
 document.getElementById("control").addEventListener("click", ()=>document.getElementById("panel").classList.toggle('hide'))
 document.getElementById("mo").addEventListener('change', ()=>{
 	if (document.getElementById("mo").checked) {
