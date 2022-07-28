@@ -40,8 +40,11 @@ if (colors) {
 //drawing the characters
 function draw() {
 	let fr = document.getElementById("fr").value
-	let bg = document.getElementById("bg").value+"26"
+	let bg = document.getElementById("bg").value
 	font_size = document.getElementById("fs").value
+	history.replaceState({page: 1}, '', `#${fr.replace('#', '')}-${bg.replace('#', '')}-${font_size}`)
+
+	bg = bg+'26'
 	document.querySelector('meta[name="theme-color"]').setAttribute('content', document.getElementById("bg").value)
   ctx.fillStyle = bg; // rgba(0, 0, 20, 0.15)
   ctx.fillRect(0, 0, disp.width, disp.height);

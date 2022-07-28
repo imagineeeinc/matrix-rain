@@ -18,6 +18,8 @@ Here you can customize the background colour, the foreground colour, the text si
 
 Then press the button in the top right again to close the panel.
 
+The app also generates a URL in the URL bar so you can copy to save the graphical changes (not the hide mouse setting), read [customizing through url](#customizing) for more on url based customizations.
+
 Now have fun hacking the matrix.
 
 <h2 align="center">Customizing API</h2>
