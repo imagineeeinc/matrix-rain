@@ -78,3 +78,11 @@ document.getElementById("mo").addEventListener('change', ()=>{
 		disp.classList.remove('no-mouse')
 	}
 })
+if ('wakeLock' in navigator) {
+	(async ()=>await navigator.wakeLock.request('screen'))()
+	document.addEventListener('visibilitychange', async () => {
+		if (document.visibilityState === 'visible') {
+			await navigator.wakeLock.request('screen');
+		}
+	});
+}
